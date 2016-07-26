@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>JQUERY IMAGES</title>
+    <meta name="description" content="JQuery Part 2">
+    
+    <link href="css/styles.css" rel="stylesheet">
+    
+    <!-- JQUERY UI CSS -->
+	<link href="jquery-ui.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    
+        <!-- SlidesJS Slides -->
+        <h2 class="header">Elvis Presley jQuery Slide Show </h2>
+          <div class="container">
+            <div id="slides">
+                <img src="img/image1.jpg" alt="Photo 1">
+                <img src="img/image2.jpg" alt="Photo 2">
+                <img src="img/image3.jpg" alt="Photo 3">
+                <img src="img/image4.jpg" alt="Photo 4">
+                <img src="img/image5.jpg" alt="Photo 5">
+            </div>
+          </div>
+        <!-- End SlidesJS -->   
+
+
+        <!-- Tabs -->
+        <h2 class="header">Elvis Presley jQuery Tabbed Menu Bar</h2>
+        <div id="tabs">
+            <ul>
+                <li><a href="#tabs-1">The early years</a></li>
+                <li><a href="#tabs-2">The middle years</a></li>
+                <li><a href="#tabs-3">The ending years</a></li>
+            </ul>
+            <div id="tabs-1">Elvis enjoyed his childhood and had many friends.</div>
+            <div id="tabs-2">Elvis was known as a cross-over singer.</div>
+            <div id="tabs-3">Elvis went on to become the highest paid solo signer.</div>
+        </div>
+        <!-- End Tabs -->
+        
+       
+        <!-- Accordion -->
+        <h2 class="header">Elvis Presley JQuery Accordion</h2>
+        <div id="accordion">
+            <h3>FACT 1</h3>
+            <div>Elvis is remembered more than any other American singer.</div>
+            <h3>FACT 2</h3>
+            <div>He once flew from Memphis to Las Vegas just to get a coffer with friends.</div>
+            <h3>FACT 3</h3>
+            <div>He as introduced on the Ed Sullivan show.</div>
+        </div>
+        <!-- End Accordion -->
+    
+    
+<!-- jQuery Library  -->    
+    <script src="external/jquery/jquery-3.1.0.min.js"></script>
+
+<!-- jQuery UI Library  -->     
+    <script src="jquery-ui.min.js"></script>
+
+<!-- SlidesJS -->
+    <script src="jquery.slides.min.js"></script>    
+
+   
+    
+<!--SLIDESHOW SCRIPT    -->
+<script>
+
+//A jQuery Image Selection Slideshow (10 points)
+    
+//In this part of the assignment you will create an image selection slideshow using jQuery. The image below //outlines what the final result should look like. To receive maximum points on this part of the //assignment, be sure to take the following into account:
+//1.The slideshow must have a minimum of 5 images.
+       
+//2.Add a numeric paging widget underneath the images. Make sure to stylize them using jQuery so that the //selected image is clearly differentiated from the non-selected images. 
+
+//Only one image will fade into view at a time. Depending on the number selected in the paging widget, the //image that represents that number should fade into view. Make sure to take advantage of jQuery effects //for this fade into view.
+
+//slideshow image here
+    
+  $(function() {
+    $('#slides').slidesjs({
+        width: 940,
+        height: 528,
+        navigation: {
+          effect: "fade"
+        },
+        pagination: {
+          effect: "fade"
+        },
+        effect: {
+          fade: {
+            speed: 400
+          }
+        }
+    });
+});  
+</script>
+    
+<!--TABS SCRIPT    -->  
+<script>
+//A jQuery Tabbed Menu Bar (10 points)
+    
+//In this part of the assignment you will create a tabbed menu and associated panels using jQuery. The //image below outlines what the final result should look similar to. To receive maximum points on this part //of the assignment, be sure to take the following into account:
+//1.The tabbed menu must have a minimum of 3 tabs with 3 associated panels.
+
+//Each tab should show its respective panel when clicked. Add CSS styling to your tab menu, tabs, and //panels so that it’s aesthetically pleasing.
+        
+//tabbed image here
+    
+$( "#tabs" ).tabs(); 
+</script>    
+    
+<!--ACCORDION SCRIPT    -->
+<script>
+//A jQuery Accordion (10 points)	
+    
+//In this part of the assignment you will create an accordion using jQuery. The image below outlines what //the final result should look similar to. To receive maximum points on this part of the assignment, be //sure to take the following into account:
+//1.The accordion must have a minimum of 3 headings and associated panels for each heading.
+
+//2.Next to the text for each heading should be a plus icon. You can use an actual icon image or just use //text if you prefer. When an accordion panel is open, the icon should change just as it does in the image //below. The heading style should also change including shape and color as it does in the image below.
+
+//The panels should animate into view when their respective headings are clicked.
+        
+//accordian image here
+
+  $( function() {
+    var icons = {
+      header: "ui-icon-plusthick",
+      activeHeader: "ui-icon-minusthick"
+    };
+    $( "#accordion" ).accordion({
+      icons: icons
+    });
+    $( "#toggle" ).button().on( "click", function() {
+      if ( $( "#accordion" ).accordion( "option", "icons" ) ) {
+        $( "#accordion" ).accordion( "option", "icons", null );
+      } else {
+        $( "#accordion" ).accordion( "option", "icons", icons );
+      }
+    });
+  } );
+
+</script>
+    
+</body>
+</html>
